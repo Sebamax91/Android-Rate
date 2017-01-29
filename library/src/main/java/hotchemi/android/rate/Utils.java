@@ -31,4 +31,8 @@ final class Utils {
         }
     }
 
+    @SuppressLint("NewApi")
+    static AlertDialog.Builder getDialogBuilder(Context context, int themeResId) {
+        return new AlertDialog.Builder(context, themeResId);
+    }
 }

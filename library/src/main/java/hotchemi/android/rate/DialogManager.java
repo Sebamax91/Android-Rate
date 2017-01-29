@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
 
+import org.jetbrains.annotations.Nullable;
+
 import static hotchemi.android.rate.IntentHelper.createIntentForAmazonAppstore;
 import static hotchemi.android.rate.IntentHelper.createIntentForGooglePlay;
 import static hotchemi.android.rate.PreferenceHelper.setAgreeShowDialog;
@@ -18,8 +20,15 @@ final class DialogManager {
     private DialogManager() {
     }
 
-    static Dialog create(final Context context, final DialogOptions options) {
-        AlertDialog.Builder builder = getDialogBuilder(context);
+    static Dialog create(final Context context, final DialogOptions options,
+                         @Nullable final Integer themeResId) {
+
+        AlertDialog.Builder builder;
+        if (themeResId == null) {
+            builder = getDialogBuilder(context);
+        } else {
+            builder = getDialogBuilder(context, themeResId);
+        }
         builder.setMessage(options.getMessageText(context));
 
         if (options.shouldShowTitle()) builder.setTitle(options.getTitleText(context));

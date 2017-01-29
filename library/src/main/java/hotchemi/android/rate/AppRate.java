@@ -30,6 +30,8 @@ public final class AppRate {
 
     private boolean isDebug = false;
 
+    private Integer themeRedId = null;
+
     private AppRate(Context context) {
         this.context = context.getApplicationContext();
     }
@@ -69,6 +71,11 @@ public final class AppRate {
 
     public AppRate setRemindInterval(int remindInterval) {
         this.remindInterval = remindInterval;
+        return this;
+    }
+
+    public AppRate setThemeRedId(Integer themeRedId) {
+        this.themeRedId = themeRedId;
         return this;
     }
 
@@ -182,7 +189,7 @@ public final class AppRate {
 
     public void showRateDialog(Activity activity) {
         if (!activity.isFinishing()) {
-            create(activity, options).show();
+            create(activity, options, themeRedId).show();
         }
     }
 

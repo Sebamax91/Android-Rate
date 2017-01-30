@@ -74,7 +74,7 @@ public final class AppRate {
         return this;
     }
 
-    public AppRate setThemeRedId(Integer themeRedId) {
+    public AppRate setTheme(Integer themeRedId) {
         this.themeRedId = themeRedId;
         return this;
     }

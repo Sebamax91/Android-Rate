@@ -11,5 +11,6 @@ android {
 
 apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
 dependencies {
+    compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'org.jetbrains:annotations-java5:15.0'
 }
